@@ -1,0 +1,29 @@
+<project name="My Developer org" default="" basedir="." xmlns:sf="antlib:com.salesforce">
+    <property environment="env"/>
+
+    <!-- Setting default value for username, password and session id properties to empty string 
+         so unset values are treated as empty. Without this, ant expressions such as ${sf.username}
+         will be treated literally.
+    -->
+
+    <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+        <classpath>
+            <pathelement location="../ant-salesforce.jar" />        	
+        </classpath>
+    </taskdef>
+	
+    <!-- Retrieve -->
+	<target name="retrieve">
+	<sf:retrieve username="tushar.jain2@brave-goat-2830rk.com" password="newuser@123uZilqRUYnUNzNOaHNImU5zHY"  retrieveTarget="/firstRetrieve" unpackaged="package.xml"/>
+	</target>
+	
+	<!-- Retrieve the information of all items of a particular metadata type -->
+    <target name="listMetadata">
+      <sf:listMetadata username="tushar.jain2@brave-goat-2830rk.com" password="newuser@123uZilqRUYnUNzNOaHNImU5zHY"  metadataType="CustomObject"/>
+    </target>
+
+	<!-- Retrieve the information on all supported metadata type -->
+    <target name="describeMetadata">
+      <sf:describeMetadata username="tushar.jain2@brave-goat-2830rk.com" password="newuser@123uZilqRUYnUNzNOaHNImU5zHY"/>
+    </target>
+</project>

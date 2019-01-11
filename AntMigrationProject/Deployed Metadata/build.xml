@@ -1,0 +1,20 @@
+<project name="My Developer org" default="" basedir="." xmlns:sf="antlib:com.salesforce">
+    <property environment="env"/>
+
+    <!-- Setting default value for username, password and session id properties to empty string 
+         so unset values are treated as empty. Without this, ant expressions such as ${sf.username}
+         will be treated literally.
+    -->
+
+    <taskdef resource="com/salesforce/antlib.xml" uri="antlib:com.salesforce">
+        <classpath>
+            <pathelement location="../ant-salesforce.jar" />        	
+        </classpath>
+    </taskdef>
+	
+	<!-- Deploy -->
+	<target name="deploy">
+	<sf:deploy username="divya.dave2@cunning-goat-1vjkwp.com" password="newuser@123!kgzzMBPkrrQsQPlahDFV3wCN"  deployroot="/firstRetrieve" />
+	</target>
+	
+</project>
